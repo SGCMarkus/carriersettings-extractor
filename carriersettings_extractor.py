@@ -436,7 +436,8 @@ def gen_config_tree(parent, config):
             sub_element.set("name", config.key)
             sub_element.set("value", str(getattr(config, value_type)))
         case _:
-            raise TypeError(f"Unknown Config value type: {value_type}")
+            print(f"Unknown Config value type: {value_type}")
+            return
 
 
 carrier_config_root = ET.Element("carrier_config_list")
