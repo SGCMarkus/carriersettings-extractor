@@ -340,15 +340,21 @@ unwanted_configs = [
     "moto_disable_5GSA_during_wfc_call",
     "moto_networkstate_pingpong_supported_bool",
     "moto_networkstate_service_support_bool",
+    "moto_networkstate_pingpong_supported_bool ",
+    "moto_networkstate_service_support_bool ",
     "moto_smart_5g_enabled_bool",
     "moto_smart_5g_supported_bool",
     "moto_support_data_stall_detect_bool",
+    "moto_support_data_stall_detect_bool ",
     "moto_sync_nrband_list_bool",
     "moto_wifi_cellular_switch_enabled_bool",
     "moto_cs_call_barring_service_class_int",
     "moto_user_default_nr_mode",
     "moto_force_apn_mvno_type_priority_string",
     "moto_config_spn_display_rule_array",
+    "call_redirection_service_component_name_string",
+    "carrier_vvm_package_name_string",
+    
 ]
 
 unwanted_configs_tensor = ["smart_forwarding_config_component_name_string"]
@@ -406,7 +412,7 @@ def gen_config_tree(parent, config):
                 items = [
                     item
                     for item in items
-                    if "com.google.android.carriersetup/" not in str(item)
+                    if ("com.google.android.carriersetup/" not in str(item) or "com.motorola" not in str(item))
                 ]
                 # if there's only 1 value defined ("com.google.android.carriersetup") in
                 # the list, just return so we're not writing an array of 0 values
